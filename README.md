@@ -2,7 +2,7 @@
 
 > A cross-platform PowerShell security toolkit. File integrity indexing, AES-256 file
 > encryption, secure randomness, Windows ACL and UAC management, local-admin provisioning,
-> Authenticode auditing, and Linux cron and certificate hardening.
+> Authenticode auditing.
 
 ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/OptimusSharp.PSSecurity)
 ![PowerShell](https://img.shields.io/badge/PowerShell-7%2B-5391FE)
