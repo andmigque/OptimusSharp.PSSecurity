@@ -17,8 +17,7 @@
 Install-Module -Name OptimusSharp.PSSecurity -RequiredVersion 1.1.0
 ```
 
-The module targets PowerShell 7 or later on the Core edition. Windows and Linux each get an
-extra surface, listed under [Platform support](#platform-support).
+The module targets PowerShell 7 or later on the Core edition.
 
 ## Quick start
 
