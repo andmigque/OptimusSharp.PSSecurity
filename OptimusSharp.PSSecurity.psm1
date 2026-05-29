@@ -1,11 +1,3 @@
-#### # OptimusSharp.PSSecurity
-####
-#### > Module loader for the OptimusSharp.PSSecurity security toolkit.
-####
-#### Sets strict mode, opts out of telemetry, and fixes the hash-index policy at module scope.
-#### Dot-sources the Private helpers and Public functions, gates the Windows-only and Linux-only
-#### surfaces on the host platform, then exports the platform-appropriate public function set.
-####
 using namespace System
 using namespace System.IO
 using namespace System.Security.Cryptography
@@ -14,11 +6,24 @@ using namespace System.Collections.Immutable
 Set-StrictMode -Version Latest
 $env:POWERSHELL_TELEMETRY_OPTOUT = 'true'
 
-#### > Module-scope policy. The hash-index settings are read by Write-DirectoryHashes and Get-IndexableFile.
+#### # OptimusSharp.PSSecurity
+####
+#### ## Module loader for the OptimusSharp.PSSecurity security toolkit.
+####
+#### - Sets strict mode, opts out of telemetry, and fixes the hash-index policy at module scope.
+#### - Dot-sources the Private helpers and Public functions, gates the Windows-only and Linux-only
+#### - surfaces on the host platform, then exports the platform-appropriate public function set.
+####
+
+
+#### ### Output encoding ensures acurrate terminal character parsing
 $script:OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+#### ### Is Interfactive keeps the shell from executing interactive only functions, e.g. allow AI agents to execute the script normally
 $script:IsInteractive = $Host.Name -eq 'ConsoleHost' -and $Host.UI -and $Host.UI.RawUI -and [Environment]::UserInteractive
+#### ### Also check to ensure a console is actually attached.
 $script:HasConsole = -not [Console]::IsInputRedirected -and -not [Console]::IsOutputRedirected
 $script:HashIndexAlgorithm = 'SHA256'
+#### ### These are the files we want to include when we builds a HashIndex
 $script:HashIndexInclude = @('*.md', '*.ps1', '*.psm1', '*.cs', '*.psd1', '*.ts', '*.sql', '*.json', '*.csv', '*.zip', '*.js', '*.cshtml')
 $script:HashIndexExclude = @('bin', 'obj', 'node_modules', '.git')
 
@@ -29,6 +34,8 @@ $here = $PSScriptRoot
 . (Join-Path $here 'Public' 'Integrity.ps1')
 . (Join-Path $here 'Public' 'Encryption.ps1')
 . (Join-Path $here 'Public' 'Random.ps1')
+. (Join-Path $here 'Public' 'Backup.ps1')
+. (Join-Path $here 'Public' 'Search.ps1')
 
 $publicFunctions = @(
     'Get-Hash'
@@ -36,6 +43,8 @@ $publicFunctions = @(
     'Protect-FileWithEncryption'
     'Unprotect-EncryptedFile'
     'Write-DirectoryHashes'
+    'Backup-FileParallel'
+    'Search-KeywordInFile'
 )
 
 #### > Windows-only surface. ACL inspection and repair, UAC policy, local-admin creation, Authenticode audit.
@@ -67,18 +76,6 @@ if ($IsWindows) {
         'Get-UacConfiguration'
         'New-LocalAdminUser'
         'Get-ApplicationSignatureAudit'
-    )
-}
-
-#### > Linux-only surface. Cron hardening, audit reporting, mkcert certificates.
-if ($IsLinux) {
-    . (Join-Path $here 'Public' 'Linux.ps1')
-
-    $publicFunctions += @(
-        'Set-CronPermissions'
-        'Show-SecurityReport'
-        'Start-SecurityWatch'
-        'New-SecurityCertificate'
     )
 }
 

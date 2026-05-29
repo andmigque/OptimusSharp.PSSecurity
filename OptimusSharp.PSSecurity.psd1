@@ -51,7 +51,10 @@ PowerShellVersion = '7.0'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @()
+RequiredModules = @(
+        @{ ModuleName = 'Pester'; ModuleVersion = '5.7.1' }
+        @{ ModuleName = 'PSScriptAnalyzer'; ModuleVersion = '1.24.0' }
+    )
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -69,19 +72,7 @@ PowerShellVersion = '7.0'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-Hash', 'Get-SecureRandom32', 'Protect-FileWithEncryption', 
-               'Unprotect-EncryptedFile', 'Write-DirectoryHashes', 'Get-AclItem', 
-               'Show-AclItem', 'Get-AclItemOwner', 'Set-AclItemOwner', 
-               'Repair-AclItemOwnership', 'Grant-AclItem', 'Revoke-AclItem', 
-               'Copy-AclItem', 'Set-AclItemInheritance', 'Get-AclItemAccountUnknown', 
-               'Show-AclItemAccountUnknown', 'Get-AclItemAccountAnomalies', 
-               'Remove-AclItemAccountUnknown', 'Reset-AclItem', 
-               'Set-UacRequirePassword', 'Set-UacConsentOnly', 
-               'Get-UacConfiguration', 'New-LocalAdminUser', 
-               'Get-ApplicationSignatureAudit', 'Set-CronPermissions', 
-               'Show-SecurityReport', 'Start-SecurityWatch', 
-               'New-SecurityCertificate'
-
+FunctionsToExport = '*'
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
 
