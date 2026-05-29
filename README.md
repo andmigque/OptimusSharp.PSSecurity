@@ -8,9 +8,11 @@
 <h3 align="center">
   OptimusSharp
 </h3>
+
 <h6 align="center">
-_presents_
-</h6
+<i>presents</i>
+</h6>
+
 <h1 align="center">
 PSSecurity
 </h1>
