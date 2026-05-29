@@ -47,21 +47,19 @@ Install from the
 Install-Module -Name OptimusSharp.PSSecurity
 ```
 
-Then generate a cryptographically secure token.
+Take a tamper-evident SHA-256 inventory of a directory in one call.
 
 ```powershell
-Import-Module OptimusSharp.PSSecurity
+Write-DirectoryHashes -Path .\release
 ```
 
-```powershell
-Get-SecureRandom32
-```
-
-It produces a 32-character alphanumeric string.
+You get `HashIndex.json` for tooling and `HashIndex.md` for humans, plus a count.
 
 ```text
-2rGyl1WxcJcnHIbynrRZzGHN8kQ4pTfa
+Hashed 128 files into .\release\HashIndex.md and .\release\HashIndex.json
 ```
+
+Commit the index, then re-run it later to prove nothing has changed.
 
 ## 🔙 Background
 
@@ -85,18 +83,6 @@ function anchored to a security objective:
 It runs on PowerShell 7 and the Core edition.
 
 ## 🔐 How To
-
-Write an integrity index over a directory tree.
-
-```powershell
-Write-DirectoryHashes -Path .\release
-```
-
-`HashIndex.md` and `HashIndex.json` land in the target directory.
-
-```text
-Hashed 42 files into .\release\HashIndex.md and .\release\HashIndex.json
-```
 
 Round-trip a file through AES-256. Pull the key from a vault with
 [SecretManagement](https://learn.microsoft.com/powershell/utility-modules/secretmanagement/overview),
@@ -122,6 +108,12 @@ $restore = @{
 
 ```powershell
 Unprotect-EncryptedFile @restore
+```
+
+On Windows, surface every command in PATH that is not validly signed.
+
+```powershell
+Get-ApplicationSignatureAudit | Where-Object Status -ne 'Valid'
 ```
 
 ## 🧩 Functions
