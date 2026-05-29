@@ -9,8 +9,6 @@
 ![Edition](https://img.shields.io/badge/edition-Core-2b579a)
 ![License](https://img.shields.io/badge/license-MIT-2ea44f)
 
-
-
 ## Install
 
 ```powershell
@@ -84,32 +82,6 @@ Unprotect-EncryptedFile -EncryptedFilePath $enc.Path -FilePassword $key -OutputF
 | `Get-UacConfiguration` | Read UAC policy and STIG compliance. |
 | `New-LocalAdminUser` | Create a local user in the Administrators group. |
 | `Get-ApplicationSignatureAudit` | Audit Authenticode signatures across PATH. |
-
-### Linux
-
-| Function | Purpose |
-| :--- | :--- |
-| `Set-CronPermissions` | Restrict the standard cron directories to 700. |
-| `Show-SecurityReport` | Print an aureport audit summary. |
-| `Start-SecurityWatch` | Tail the audit log in real time. |
-| `New-SecurityCertificate` | Generate locally-trusted TLS certificates via mkcert. |
-
-## Platform support
-
-The five cross-platform functions load everywhere. The Windows surface loads only on Windows,
-and the Linux surface only on Linux. The loader gates each set on the host, so importing on the
-wrong platform never defines a function it cannot run.
-
-## Development
-
-The module is built and tested through Invoke-Build from the repository root.
-
-| Task | What it does |
-| :--- | :--- |
-| `Invoke-Build -Task test_pssecurity` | Run the Pester 5 unit suite. Elevated cases skip unless elevated. |
-| `Invoke-Build -Task test_security_elevated` | Run the elevated ACL, UAC, and local-admin integration cases. |
-| `Invoke-Build -Task build_pssecurity_docs` | Generate the SharpDown Markdown under `docs`. |
-| `Invoke-Build -Task publish_pssecurity` | Publish to the Gallery. Dry-run unless `PSGALLERY_API_KEY` is set. |
 
 ## License
 
