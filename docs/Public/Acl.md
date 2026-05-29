@@ -2,7 +2,8 @@
 ```powershell
 function Get-AclItem
 ```
- Return all ACEs for a path as structured objects. One row per ACE per target.
+ Return all ACEs for a path as structured objects.
+ One row per ACE per target.
 
  **Parameters**
  - `[string]`: __Path__
@@ -72,7 +73,9 @@ function Get-AclItemOwner
 ```powershell
 function Set-AclItemOwner
 ```
- Change the owner of one or more file system items. Requires Administrator. Supports `-WhatIf`.
+ Change the owner of one or more file system items.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__
@@ -111,7 +114,9 @@ function Repair-AclItemOwnership
 ```powershell
 function Grant-AclItem
 ```
- Add a `FileSystemAccessRule` to one or more targets. Requires Administrator. Supports `-WhatIf`.
+ Add a `FileSystemAccessRule` to one or more targets.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__

@@ -2,7 +2,8 @@
 ```powershell
 function Get-ApplicationSignatureAudit
 ```
- Audit Authenticode signatures for all commands visible in PATH. Excludes WindowsApps stubs.
+ Audit Authenticode signatures for all commands visible in PATH.
+ Excludes WindowsApps stubs.
 
  **Parameters**
  - `[int]`: __ThrottleLimit__

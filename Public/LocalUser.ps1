@@ -5,7 +5,8 @@ using namespace System.Collections.Immutable
 
 #### # New-LocalAdminUser
     function New-LocalAdminUser {
-        #### Create a local user account and add it to the Administrators group. Requires Administrator.
+        #### Create a local user account and add it to the Administrators group.
+        #### Requires Administrator.
         ####
         #### **Parameters**
         #### - `[PSCredential]`: __Credential__

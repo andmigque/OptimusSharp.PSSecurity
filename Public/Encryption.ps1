@@ -5,7 +5,8 @@ using namespace System.Collections.Immutable
 
 #### # Unprotect-EncryptedFile
 function Unprotect-EncryptedFile {
-    #### Decrypt a file encrypted by `Protect-FileWithEncryption`. AES-256-CBC with PBKDF2 key derivation.
+    #### Decrypt a file encrypted by `Protect-FileWithEncryption`.
+    #### Uses AES-256-CBC with PBKDF2 key derivation.
     ####
     #### **Parameters**
     #### - `[string]`: __EncryptedFilePath__
