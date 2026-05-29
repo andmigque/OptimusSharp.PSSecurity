@@ -5,7 +5,11 @@
     width="96" />
 </p>
 
-<h1 align="center">OptimusSharp.<br />PSSecurity</h1>
+<h1 align="center">
+  OptimusSharp
+  <br />
+  PSSecurity
+</h1>
 
 <p align="center">
   A cross-platform PowerShell security toolkit.<br />
