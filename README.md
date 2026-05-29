@@ -59,17 +59,22 @@ It produces a 32-character alphanumeric string.
 
 ## 🔙 Background
 
-Every project repeats the same security chores. Hash a release. Encrypt a
-secret. Audit an ACL. The scripts get copied, drift, and rot.
+Hardening a system is layered work. Verify integrity at one layer, encrypt
+data at the next, tighten an ACL, audit a signature. Each layer carries its
+own tooling, and the tools rarely share a shell.
 
-This module gathers those chores into one toolkit:
+OptimusSharp.PSSecurity brings the layers into one PowerShell module, each
+function anchored to a security objective:
 
-- Hashing and directory integrity indexing
-- AES-256 file encryption
-- Cryptographically secure randomness
-- Windows ACL and UAC management
-- Local-admin provisioning
-- Authenticode auditing
+- **Integrity.** `Write-DirectoryHashes` builds tamper-evident hash indexes
+  across a tree, and `Get-ApplicationSignatureAudit` verifies Authenticode
+  signatures on every command in PATH.
+- **Confidentiality.** `Protect-FileWithEncryption` applies AES-256-CBC with a
+  PBKDF2-derived key, and `Get-SecureRandom32` draws bias-free tokens from a
+  CSPRNG.
+- **Least privilege.** The `*-AclItem` family audits and repairs access
+  control entries, and the UAC functions harden the admin consent prompt
+  against STIG V-220963 through V-220965.
 
 It runs on PowerShell 7 and the Core edition.
 
