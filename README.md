@@ -5,12 +5,14 @@
     width="96" />
 </p>
 
-<h1 align="center">
+<h3 align="center">
   OptimusSharp
-  <br />
-  presents
-  <br />
-  PSSecurity
+</h3>
+<h6 align="center">
+_presents_
+</h6
+<h1 align="center">
+PSSecurity
 </h1>
 
 <p align="center">
