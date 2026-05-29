@@ -8,18 +8,27 @@ Set-StrictMode -Version Latest
 Set-Alias -Name tp -Value Test-Path
 Set-Alias -Name nuit -Value New-Item
 
-#### ## Backup-FilesParallel
-
+#### # Backup-FilesParallel
 function Backup-FilesParallel {
-    #### Recursive gzip streaming parallel compression with fail fast semantics and interactive feedback.
-    #### **Parameters**
-    #### - `string`: __Path__
-    ####     - *Existing source directory. Walked recursively.*
-    #### - `string`: __OutPath__
-    ####     - *Destination root. Created if missing. Mirrors the source tree.*
-    #### - `int`: __Throttle__
-    ####     - *Throttle passed to `ForEach-Object -Parallel`. Defaults to 4.*
+    #### Mirror a directory tree to a destination as gzip files.
+    #### The walk is recursive and the destination mirrors the source tree.
+    #### Compression runs in parallel across files.
+    #### Per-file failures are collected and written to `CompressionErrors.json`.
+    #### Progress and elapsed time print when the host is interactive.
     ####
+    #### **Parameters**
+    #### - `[string]`: __Path__
+    ####     - *Existing source directory. Walked recursively.*
+    #### - `[string]`: __OutPath__
+    ####     - *Destination root. Created if missing. Mirrors the source tree.*
+    #### - `[int]`: __Throttle__
+    ####     - *Throttle for `ForEach-Object -Parallel`. Defaults to 4.*
+    ####
+    #### **Returns**
+    #### - *None. Writes `.gz` files to `OutPath`, plus `CompressionErrors.json` on partial failure.*
+    ####
+    #### **Throws**
+    #### - *When `Path` does not exist.*
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true)]
@@ -32,9 +41,7 @@ function Backup-FilesParallel {
         [int]$Throttle = 4
     )
 
-    #### - Displays time elapsed when run interactively in the terminal
-    #### - OutPath is created on demand
-    #### - @ToDo The termination of this function is not good at all. Find a better way to complete the job.
+    # TODO: the parallel block needs a cleaner completion signal on termination.
 
     $validDir = (Test-Path $Path -PathType Container)
     if(-not $validDir){throw "Path not found"}
@@ -72,12 +79,7 @@ function Backup-FilesParallel {
         $gzipfPath = "${destPath}.gz"
 
         try {
-            #### ```powershell
-            #### # Uses
-            #### [System.IO.Compression.GZipStream]
-            #### [System.IO.Compression.CompressionLevel]::SmallestSize
-            #### ```
-            ####
+            # Uses GZipStream at CompressionLevel.SmallestSize.
             $fileStream = [System.IO.File]::OpenRead($fPath)
             $gzipStream = [System.IO.File]::Create($gzipfPath)
             $gzipWriter = [System.IO.Compression.GZipStream]::new($gzipStream, [System.IO.Compression.CompressionLevel]::SmallestSize, $false)
@@ -107,11 +109,6 @@ function Backup-FilesParallel {
     else {
         Write-Information 'Compression complete'
     }
-    #### **Returns**
-    #### - *None. Writes .gz files to OutPath and a CompressionErrors.json on partial failure.*
-    ####
-    #### **Throws**
-    #### - *When Path does not exist.*
 }
 
 

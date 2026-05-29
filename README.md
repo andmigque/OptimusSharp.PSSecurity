@@ -1,88 +1,156 @@
-# OptimusSharp.PSSecurity
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/andmigque/OptimusSharp.StaticAssets/refs/heads/main/optimus.svg"
+    alt="Optimus Sharp"
+    width="96" />
+</p>
 
-> A cross-platform PowerShell security toolkit. File integrity indexing, AES-256 file
-> encryption, secure randomness, Windows ACL and UAC management, local-admin provisioning,
-> Authenticode auditing.
+<h3 align="center">
+  OptimusSharp
+</h3>
 
-![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/OptimusSharp.PSSecurity)
-![PowerShell](https://img.shields.io/badge/PowerShell-7%2B-5391FE)
-![Edition](https://img.shields.io/badge/edition-Core-2b579a)
-![License](https://img.shields.io/badge/license-MIT-2ea44f)
+<h6 align="center">
+<i>presents</i>
+</h6>
 
-## Install
+<h1 align="center">
+PSSecurity
+</h1>
+
+<p align="center">
+  A cross-platform PowerShell security toolkit.<br />
+  File integrity indexing, AES-256 encryption, secure randomness,<br />
+  Windows ACL and UAC management, local-admin provisioning,<br />
+  and Authenticode auditing.
+</p>
+
+<p align="center">
+  <a href="https://www.powershellgallery.com/packages/OptimusSharp.PSSecurity">
+    <img alt="PowerShell Gallery Version" src="https://img.shields.io/powershellgallery/v/OptimusSharp.PSSecurity" />
+  </a>
+  <a href="https://www.powershellgallery.com/packages/OptimusSharp.PSSecurity">
+    <img alt="PowerShell Gallery Downloads" src="https://img.shields.io/powershellgallery/dt/OptimusSharp.PSSecurity" />
+  </a>
+  <img alt="PowerShell 7+" src="https://img.shields.io/badge/PowerShell-7%2B-5391FE" />
+  <img alt="Edition Core" src="https://img.shields.io/badge/edition-Core-2b579a" />
+  <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-2ea44f" />
+</p>
+
+---
+
+## 🚀 Quick Start
+
+Install from the
+[PowerShell Gallery](https://www.powershellgallery.com/packages/OptimusSharp.PSSecurity).
 
 ```powershell
-Install-Module -Name OptimusSharp.PSSecurity -RequiredVersion 1.1.0
+Install-Module -Name OptimusSharp.PSSecurity
 ```
 
-The module targets PowerShell 7 or later on the Core edition.
-
-## Quick start
-
-Generate a cryptographically secure token.
-
-```powershell
-Import-Module OptimusSharp.PSSecurity
-Get-SecureRandom32
-```
-
-Produces a 32-character alphanumeric string.
-
-```text
-2rGyl1WxcJcnHIbynrRZzGHN8kQ4pTfa
-```
-
-Write an integrity index over a directory tree.
+Take a tamper-evident SHA-256 inventory of a directory in one call.
 
 ```powershell
 Write-DirectoryHashes -Path .\release
 ```
 
-`HashIndex.md` and `HashIndex.json` land in the target directory, and a count prints to the host.
+You get `HashIndex.json` for tooling and `HashIndex.md` for humans, plus a count.
 
 ```text
-Hashed 42 files into .\release\HashIndex.md and .\release\HashIndex.json
+Hashed 128 files into .\release\HashIndex.md and .\release\HashIndex.json
 ```
 
-Round-trip a file through AES-256.
+Commit the index, then re-run it later to prove nothing has changed.
+
+## 🔙 Background
+
+Hardening a system is layered work. Verify integrity at one layer, encrypt
+data at the next, tighten an ACL, audit a signature. Each layer carries its
+own tooling, and the tools rarely share a shell.
+
+OptimusSharp.PSSecurity brings the layers into one PowerShell module, each
+function anchored to a security objective:
+
+- **Integrity.** `Write-DirectoryHashes` builds tamper-evident hash indexes
+  across a tree, and `Get-ApplicationSignatureAudit` verifies Authenticode
+  signatures on every command in PATH.
+- **Encryption.** `Protect-FileWithEncryption` applies AES-256-CBC with a
+  PBKDF2-derived key, and `Get-SecureRandom32` draws bias-free tokens from a
+  CSPRNG.
+- **Access control.** The `*-AclItem` family audits and repairs access
+  control entries, and the UAC functions harden the admin consent prompt
+  against STIG V-220963 through V-220965.
+
+It runs on PowerShell 7 and the Core edition.
+
+## 🔐 How To
+
+Round-trip a file through AES-256. Pull the key from a vault with
+[SecretManagement](https://learn.microsoft.com/powershell/utility-modules/secretmanagement/overview),
+then reuse it for both directions.
 
 ```powershell
-$key = Read-Host -AsSecureString
-$enc = Protect-FileWithEncryption -Path .\secret.txt -SecureKey $key
-Unprotect-EncryptedFile -EncryptedFilePath $enc.Path -FilePassword $key -OutputFilePath .\secret.out
+$key = Get-Secret -Name OptimusFileKey
 ```
 
-## Functions
+```powershell
+$enc = Protect-FileWithEncryption -Path .\secret.txt -SecureKey $key
+```
+
+Splat the decrypt parameters to keep each option on its own line.
+
+```powershell
+$restore = @{
+    EncryptedFilePath = $enc['Path']
+    FilePassword      = $key
+    OutputFilePath    = '.\secret.out'
+}
+```
+
+```powershell
+Unprotect-EncryptedFile @restore
+```
+
+On Windows, surface every command in PATH that is not validly signed.
+
+```powershell
+Get-ApplicationSignatureAudit | Where-Object Status -ne 'Valid'
+```
+
+## 🧩 Functions
 
 ### Cross-platform
 
-| Function | Purpose |
-| :--- | :--- |
-| `Get-Hash` | Hash a file with MD5, SHA1, SHA256, SHA384, or SHA512. |
-| `Get-SecureRandom32` | Generate a secure random alphanumeric string of length 1 to 512. |
-| `Protect-FileWithEncryption` | Encrypt a file with AES-256-CBC and a PBKDF2-derived key. |
-| `Unprotect-EncryptedFile` | Decrypt a file produced by `Protect-FileWithEncryption`. |
-| `Write-DirectoryHashes` | Write `HashIndex.md` and `HashIndex.json` across a tree. |
+- **`Get-Hash`** hashes a file with MD5, SHA1, SHA256, SHA384, or SHA512.
+- **`Get-SecureRandom32`** generates a secure alphanumeric string of length 1 to 512.
+- **`Protect-FileWithEncryption`** encrypts a file with AES-256-CBC and a PBKDF2 key.
+- **`Unprotect-EncryptedFile`** decrypts a file from `Protect-FileWithEncryption`.
+- **`Write-DirectoryHashes`** writes `HashIndex.md` and `HashIndex.json` across a tree.
 
 ### Windows
 
-| Function | Purpose |
-| :--- | :--- |
-| `Get-AclItem` / `Show-AclItem` | List or render the access control entries on a path. |
-| `Get-AclItemOwner` / `Set-AclItemOwner` | Read or set the owner of a path. |
-| `Repair-AclItemOwnership` | Reassign ownership across a tree. |
-| `Grant-AclItem` / `Revoke-AclItem` | Add or remove an access control entry. |
-| `Copy-AclItem` | Copy an access control list from one path to another. |
-| `Set-AclItemInheritance` | Enable or disable inheritance on a path. |
-| `Get-AclItemAccountUnknown` / `Show-AclItemAccountUnknown` | Find orphaned SIDs in an ACL. |
-| `Get-AclItemAccountAnomalies` | Report access control anomalies. |
-| `Remove-AclItemAccountUnknown` | Strip orphaned SIDs from an ACL. |
-| `Reset-AclItem` | Strip explicit entries back to inherited. |
-| `Set-UacRequirePassword` / `Set-UacConsentOnly` | Set the UAC admin consent prompt. |
-| `Get-UacConfiguration` | Read UAC policy and STIG compliance. |
-| `New-LocalAdminUser` | Create a local user in the Administrators group. |
-| `Get-ApplicationSignatureAudit` | Audit Authenticode signatures across PATH. |
+- **`Get-AclItem`** and **`Show-AclItem`** list or render the access control entries on a path.
+- **`Get-AclItemOwner`** and **`Set-AclItemOwner`** read or set the owner of a path.
+- **`Repair-AclItemOwnership`** reassigns ownership across a tree.
+- **`Grant-AclItem`** and **`Revoke-AclItem`** add or remove an access control entry.
+- **`Copy-AclItem`** copies an access control list between paths.
+- **`Set-AclItemInheritance`** enables or disables inheritance on a path.
+- **`Get-AclItemAccountUnknown`** finds orphaned SIDs in an ACL.
+- **`Show-AclItemAccountUnknown`** renders orphaned SIDs in an ACL.
+- **`Get-AclItemAccountAnomalies`** reports access control anomalies.
+- **`Remove-AclItemAccountUnknown`** strips orphaned SIDs from an ACL.
+- **`Reset-AclItem`** strips explicit entries back to inherited.
+- **`Set-UacRequirePassword`** requires a password at the UAC prompt.
+- **`Set-UacConsentOnly`** sets the UAC prompt to consent only.
+- **`Get-UacConfiguration`** reads UAC policy and STIG compliance.
+- **`New-LocalAdminUser`** creates a local user in the Administrators group.
+- **`Get-ApplicationSignatureAudit`** audits Authenticode signatures across PATH.
 
-## License
+## 📦 Links
+
+- [PowerShell Gallery](https://www.powershellgallery.com/packages/OptimusSharp.PSSecurity)
+- [Source on GitHub](https://github.com/andmigque/OptimusSharp.PSSecurity)
+- [Changelog](CHANGELOG.md)
+
+## 📄 License
 
 MIT. See [LICENSE](LICENSE).

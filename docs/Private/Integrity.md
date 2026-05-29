@@ -1,20 +1,21 @@
- # Write-DirectoryHashes
+ # Get-IndexableFile
 ```powershell
 function Get-IndexableFile
 ```
- Recursive file enumeration with directory-level exclusion. Mirrors the PowerNixx ETL Index pattern:
- **exclusion occurs at the directory traversal decision point, never post-enumeration**.
- Directories whose `Name` is in `Exclude` are not descended into. Files in surviving directories
- are yielded only if their `Name` matches at least one wildcard in `Include`.
+ Walk a directory tree and yield the files worth indexing.
+ Exclusion happens at the traversal decision, never after enumeration.
+
+ A directory whose `Name` is in `Exclude` is never descended into.
+ A file is yielded only when its `Name` matches a wildcard in `Include`.
 
  **Parameters**
  - `[DirectoryInfo]`: __Directory__
      - *Root to walk.*
  - `[string[]]`: __Include__
-     - *Wildcard patterns matched against each file's `Name`.*
+     - *Wildcard patterns matched against each file name.*
  - `[string[]]`: __Exclude__
      - *Directory names refused at traversal time.*
 
  **Returns**
- - `[FileInfo]` *(stream)*
-     - *One per matching file, yielded as the walk proceeds.*
+ - `[FileInfo]`
+     - *One per matching file, streamed as the walk proceeds.*

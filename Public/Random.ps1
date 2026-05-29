@@ -9,7 +9,7 @@ function Get-SecureRandom32 {
     ####
     #### **Parameters**
     #### - `[int]`: __Length__
-    ####     - *Length of the output string. Range 1–512. Defaults to 32.*
+    ####     - *Length of the output string. Range 1 to 512. Defaults to 32.*
     ####
     #### **Returns**
     #### - `[string]`

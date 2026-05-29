@@ -2,7 +2,8 @@
 ```powershell
 function Unprotect-EncryptedFile
 ```
- Decrypt a file encrypted by `Protect-FileWithEncryption`. AES-256-CBC with PBKDF2 key derivation.
+ Decrypt a file encrypted by `Protect-FileWithEncryption`.
+ Uses AES-256-CBC with PBKDF2 key derivation.
 
  **Parameters**
  - `[string]`: __EncryptedFilePath__
@@ -32,7 +33,10 @@ function Unprotect-EncryptedFile
 ```powershell
 function Protect-FileWithEncryption
 ```
- Encrypt a file with AES-256-CBC. Derives a 256-bit key from `SecureKey` via PBKDF2 (100 000 iterations). Writes a 32-byte header of salt + IV followed by ciphertext. Output is the source path with `.enc` appended.
+ Encrypt a file with AES-256-CBC.
+ Derives a 256-bit key from `SecureKey` via PBKDF2 using 100 000 iterations.
+ Writes a 32-byte header of salt + IV followed by ciphertext.
+ Output is the source path with `.enc` appended.
 
  **Parameters**
  - `[string]`: __Path__
@@ -42,4 +46,4 @@ function Protect-FileWithEncryption
 
  **Returns**
  - `[ImmutableDictionary[string, object]]`
-     - *`Path` (encrypted file path) and `SizeBytes`.*
+     - *`Path` is the encrypted file path, plus `SizeBytes`.*

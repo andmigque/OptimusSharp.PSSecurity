@@ -2,7 +2,8 @@
 ```powershell
 function New-LocalAdminUser
 ```
- Create a local user account and add it to the Administrators group. Requires Administrator.
+ Create a local user account and add it to the Administrators group.
+ Requires Administrator.
 
  **Parameters**
  - `[PSCredential]`: __Credential__
@@ -23,6 +24,6 @@ function New-LocalAdminUser
      - `[bool]`: __Created__
          - *Always `$true` on success.*
      - `[bool]`: __IsAdministrator__
-         - *Always `$true` — the user is added to the Administrators group.*
+         - *Always `$true`. The user is added to the Administrators group.*
      - `[bool]`: __PasswordNeverExpires__
          - *Reflects the `-PasswordNeverExpires` switch.*

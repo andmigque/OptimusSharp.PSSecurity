@@ -3,9 +3,11 @@ using namespace System.IO
 using namespace System.Security.Cryptography
 using namespace System.Collections.Immutable
 
-    #### # Get-AclPathTargets
+#### # Get-AclPathTargets
     function Get-AclPathTargets {
-        #### Internal helper. Resolve a path to a list of `FileSystemInfo` targets. Used by all ACL functions to handle `-Recurse`, `-File`, and `-Directory` filtering consistently.
+        #### Internal helper.
+        #### Resolve a path to a list of `FileSystemInfo` targets.
+        #### Used by all ACL functions to handle `-Recurse`, `-File`, and `-Directory` filtering consistently.
         ####
         #### **Parameters**
         #### - `[string]`: __Path__

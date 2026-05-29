@@ -3,23 +3,27 @@ using namespace System.IO
 using namespace System.Security.Cryptography
 using namespace System.Collections.Immutable
 
+#### # Write-DirectoryHashes
 function Write-DirectoryHashes {
-    #### Hash files under `Path` and write both `HashIndex.md` and `HashIndex.json` into that directory.
+    #### Hash every file under `Path` and write the index into that directory.
+    #### Two files are produced: `HashIndex.json` and `HashIndex.md`.
     ####
-    #### JSON is a flat array of `{ File, Hash, Path }` records for agents and tooling.
-    #### Markdown carries a header block and dash-prefixed `path,file,hash` rows for humans.
-    #### Algorithm (`SHA256`), include list, and exclude list are fixed at the module scope
-    #### (`$script:HashIndexAlgorithm`, `$script:HashIndexInclude`, `$script:HashIndexExclude`).
+    #### The JSON is a flat array of `{ File, Hash, Path }` records for tooling.
+    #### The Markdown carries a header block and `path,file,hash` rows for humans.
     ####
-    #### Directory exclusion is enforced at traversal time by `Get-IndexableFile`, not after enumeration.
-    #### Build output and similar trees (`bin`, `obj`, `node_modules`, `.git`) are never descended into.
+    #### Algorithm, include, and exclude lists are fixed at module scope.
+    #### The default algorithm is `SHA256`.
+    #### The default exclude set covers `bin`, `obj`, `node_modules`, and `.git`.
+    ####
+    #### Excluded directories are refused at traversal time by `Get-IndexableFile`.
+    #### They are never descended into, so their files are never hashed.
     ####
     #### **Parameters**
     #### - `[string]`: __Path__
     ####     - *Root directory to walk.*
     ####
     #### **Returns**
-    #### - *None. Writes `<Path>\HashIndex.md`, `<Path>\HashIndex.json`, and a count line to host.*
+    #### - *None. Writes `HashIndex.md` and `HashIndex.json`, then prints a count.*
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
