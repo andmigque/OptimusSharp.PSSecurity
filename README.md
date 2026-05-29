@@ -75,10 +75,10 @@ function anchored to a security objective:
 - **Integrity.** `Write-DirectoryHashes` builds tamper-evident hash indexes
   across a tree, and `Get-ApplicationSignatureAudit` verifies Authenticode
   signatures on every command in PATH.
-- **Confidentiality.** `Protect-FileWithEncryption` applies AES-256-CBC with a
+- **Encryption.** `Protect-FileWithEncryption` applies AES-256-CBC with a
   PBKDF2-derived key, and `Get-SecureRandom32` draws bias-free tokens from a
   CSPRNG.
-- **Least privilege.** The `*-AclItem` family audits and repairs access
+- **Access control.** The `*-AclItem` family audits and repairs access
   control entries, and the UAC functions harden the admin consent prompt
   against STIG V-220963 through V-220965.
 
