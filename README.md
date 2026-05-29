@@ -5,7 +5,7 @@
     width="96" />
 </p>
 
-<h1 align="center">OptimusSharp.PSSecurity</h1>
+<h1 align="center">OptimusSharp.<br />PSSecurity</h1>
 
 <p align="center">
   A cross-platform PowerShell security toolkit.<br />
@@ -105,34 +105,30 @@ Unprotect-EncryptedFile @restore
 
 ### Cross-platform
 
-| Function | Purpose |
-| :--- | :--- |
-| `Get-Hash` | Hash a file with MD5, SHA1, SHA256, SHA384, or SHA512. |
-| `Get-SecureRandom32` | Generate a secure alphanumeric string, length 1 to 512. |
-| `Protect-FileWithEncryption` | Encrypt a file with AES-256-CBC and a PBKDF2 key. |
-| `Unprotect-EncryptedFile` | Decrypt a file from `Protect-FileWithEncryption`. |
-| `Write-DirectoryHashes` | Write `HashIndex.md` and `HashIndex.json` across a tree. |
+- **`Get-Hash`** — Hash a file with MD5, SHA1, SHA256, SHA384, or SHA512.
+- **`Get-SecureRandom32`** — Generate a secure alphanumeric string, length 1 to 512.
+- **`Protect-FileWithEncryption`** — Encrypt a file with AES-256-CBC and a PBKDF2 key.
+- **`Unprotect-EncryptedFile`** — Decrypt a file from `Protect-FileWithEncryption`.
+- **`Write-DirectoryHashes`** — Write `HashIndex.md` and `HashIndex.json` across a tree.
 
 ### Windows
 
-| Function | Purpose |
-| :--- | :--- |
-| `Get-AclItem` / `Show-AclItem` | List or render the access control entries on a path. |
-| `Get-AclItemOwner` / `Set-AclItemOwner` | Read or set the owner of a path. |
-| `Repair-AclItemOwnership` | Reassign ownership across a tree. |
-| `Grant-AclItem` / `Revoke-AclItem` | Add or remove an access control entry. |
-| `Copy-AclItem` | Copy an access control list between paths. |
-| `Set-AclItemInheritance` | Enable or disable inheritance on a path. |
-| `Get-AclItemAccountUnknown` | Find orphaned SIDs in an ACL. |
-| `Show-AclItemAccountUnknown` | Render orphaned SIDs in an ACL. |
-| `Get-AclItemAccountAnomalies` | Report access control anomalies. |
-| `Remove-AclItemAccountUnknown` | Strip orphaned SIDs from an ACL. |
-| `Reset-AclItem` | Strip explicit entries back to inherited. |
-| `Set-UacRequirePassword` | Require a password at the UAC prompt. |
-| `Set-UacConsentOnly` | Set the UAC prompt to consent only. |
-| `Get-UacConfiguration` | Read UAC policy and STIG compliance. |
-| `New-LocalAdminUser` | Create a local user in the Administrators group. |
-| `Get-ApplicationSignatureAudit` | Audit Authenticode signatures across PATH. |
+- **`Get-AclItem`** / **`Show-AclItem`** — List or render the access control entries on a path.
+- **`Get-AclItemOwner`** / **`Set-AclItemOwner`** — Read or set the owner of a path.
+- **`Repair-AclItemOwnership`** — Reassign ownership across a tree.
+- **`Grant-AclItem`** / **`Revoke-AclItem`** — Add or remove an access control entry.
+- **`Copy-AclItem`** — Copy an access control list between paths.
+- **`Set-AclItemInheritance`** — Enable or disable inheritance on a path.
+- **`Get-AclItemAccountUnknown`** — Find orphaned SIDs in an ACL.
+- **`Show-AclItemAccountUnknown`** — Render orphaned SIDs in an ACL.
+- **`Get-AclItemAccountAnomalies`** — Report access control anomalies.
+- **`Remove-AclItemAccountUnknown`** — Strip orphaned SIDs from an ACL.
+- **`Reset-AclItem`** — Strip explicit entries back to inherited.
+- **`Set-UacRequirePassword`** — Require a password at the UAC prompt.
+- **`Set-UacConsentOnly`** — Set the UAC prompt to consent only.
+- **`Get-UacConfiguration`** — Read UAC policy and STIG compliance.
+- **`New-LocalAdminUser`** — Create a local user in the Administrators group.
+- **`Get-ApplicationSignatureAudit`** — Audit Authenticode signatures across PATH.
 
 ## 📦 Links
 
