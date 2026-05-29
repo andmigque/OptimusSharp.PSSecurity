@@ -1,0 +1,237 @@
+[
+  {
+    "File": "Acl.md",
+    "Hash": "2AA7706A465A019211DC6382C46E70EF0D39B395CE94AF9FD7A6163CC48ACDFC",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Private\\Acl.md"
+  },
+  {
+    "File": "Admin.md",
+    "Hash": "BEC1B199B5A12F419355134C8F30377BC9375FFCC92620CF3B30832F1D9D4CFC",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Private\\Admin.md"
+  },
+  {
+    "File": "Integrity.md",
+    "Hash": "3A5D17656C6A1814A3C8CEF239DC08A5C39E4660FED5A3A6866344386001D94A",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Private\\Integrity.md"
+  },
+  {
+    "File": "Acl.md",
+    "Hash": "ECD9FDED21FB693FDF20555F07F3922B796E59ED2F57E83656E725F11E290844",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Acl.md"
+  },
+  {
+    "File": "Encryption.md",
+    "Hash": "33F70B5C9FF5FF5E9E86D1355E1E430F2D6726EF0A672332B784234C5D9C2673",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Encryption.md"
+  },
+  {
+    "File": "Integrity.md",
+    "Hash": "628931AEC351FBE82178BBCD6CE73F804D5BBA566D906B93115ABD1886AABE97",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Integrity.md"
+  },
+  {
+    "File": "Linux.md",
+    "Hash": "82053CB951EA8074215BA5B6BF9B98C65C12FC2E81E26D292223AE39A6DE5D30",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Linux.md"
+  },
+  {
+    "File": "LocalUser.md",
+    "Hash": "16AC7A5CCB7752C1561ED6749A51774BD72C51FDA9B0D695A16CE45A473D5857",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\LocalUser.md"
+  },
+  {
+    "File": "Random.md",
+    "Hash": "6D23D563D840F8C3CB8BE95133EF97AF3EC732E7B772BAA1248A9D9B9CF34264",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Random.md"
+  },
+  {
+    "File": "Signature.md",
+    "Hash": "3A6A503710D26023ED4D184DFAD68EA36E4115F7FE102001AADF25E24BB0DC45",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Signature.md"
+  },
+  {
+    "File": "Uac.md",
+    "Hash": "DD640F4903948253DB5D6CBE2A2B75036A142968FF368319F25F67087605E0C0",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Public\\Uac.md"
+  },
+  {
+    "File": "Acl.Tests.md",
+    "Hash": "7CFC482F014565EB4DE86875B2757E145A993B419631146FB57E8FE127DF2DA1",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Acl.Tests.md"
+  },
+  {
+    "File": "Elevated.Tests.md",
+    "Hash": "135ED31FB6AD5782C82110B75C9CC2540C9BED19570039F1FE5401237D92D87B",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Elevated.Tests.md"
+  },
+  {
+    "File": "Encryption.Tests.md",
+    "Hash": "7CCEBEE269416EFFF7699A25F8D36DE33B1E5C052D51A63E5AD82057C490EFB9",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Encryption.Tests.md"
+  },
+  {
+    "File": "Integrity.Tests.md",
+    "Hash": "8879ACFCFD5A3B40D2B3D5DCC86B101F778FF96C0D9A3A611600F9731898A48E",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Integrity.Tests.md"
+  },
+  {
+    "File": "Linux.Tests.md",
+    "Hash": "E24464CC46A8BDCA1E17CF732E2D135E92CE374A197E1E4848F5368B7AAB1D6F",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Linux.Tests.md"
+  },
+  {
+    "File": "LocalUser.Tests.md",
+    "Hash": "33F96899AA582A8607FA1A22DC4142744EF8A0DC515184B775E5D1B2CB803D55",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\LocalUser.Tests.md"
+  },
+  {
+    "File": "Module.Tests.md",
+    "Hash": "B4162406EF7E8902440FCE0862CD422B5155966905AE0FEEB87A2C4E2532D0C9",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Module.Tests.md"
+  },
+  {
+    "File": "Random.Tests.md",
+    "Hash": "876C6361E9DBCD92BFE0C1F3D532AF8FEB849B51FE85393FFFB6A1A2DE0BBFF5",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Random.Tests.md"
+  },
+  {
+    "File": "Signature.Tests.md",
+    "Hash": "82FA9BE54E54658715A9D51F32F5566DDAAE28E818B2FE82C566C1FC5FDDB83F",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Signature.Tests.md"
+  },
+  {
+    "File": "Uac.Tests.md",
+    "Hash": "FB30C3E7B4684C5BBEC5ED8A79E32F94DBDCE61237255815D89D7B59067341A9",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\Tests\\Uac.Tests.md"
+  },
+  {
+    "File": "OptimusSharp.PSSecurity.md",
+    "Hash": "51EE05DE9E011085A1CF604B2FE28052EA8787D9860A1A25B669280F15C37D2D",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\docs\\OptimusSharp.PSSecurity.md"
+  },
+  {
+    "File": "Acl.ps1",
+    "Hash": "96ECAA8D821D2961462ABB4F62679210CA133CB13E659DC6508D0CBBB9463243",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Private\\Acl.ps1"
+  },
+  {
+    "File": "Admin.ps1",
+    "Hash": "F0AC00A973217EDFFE91810B41A38F6BF2403ADCCFFABE2CB1F0CFD33B950FD8",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Private\\Admin.ps1"
+  },
+  {
+    "File": "Integrity.ps1",
+    "Hash": "E3A9EC021E52A359C0DCD981A98EF700CDC7CA7E69FD6C361F5B2876921C28D3",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Private\\Integrity.ps1"
+  },
+  {
+    "File": "Acl.ps1",
+    "Hash": "6C32866E8C19BDE59FD0CE61D998569F789502949D7E201A26338EAD316AF5AC",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Acl.ps1"
+  },
+  {
+    "File": "Encryption.ps1",
+    "Hash": "AD655A1A51469DA9B0043CA1D775F3F91B4874585FB51B32E5B3F05CB942C3C2",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Encryption.ps1"
+  },
+  {
+    "File": "Integrity.ps1",
+    "Hash": "EDF0B34F5093DC835101F6EEEC8357776CCEB1543226E217F8075961DD8F76BC",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Integrity.ps1"
+  },
+  {
+    "File": "Linux.ps1",
+    "Hash": "027E177D75EDCC523F8BCA6A0C8781A7608D3D35283937624F73852CC1A73915",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Linux.ps1"
+  },
+  {
+    "File": "LocalUser.ps1",
+    "Hash": "3EA2AF77C5EC375447AC2879E84AAFAFA906004BE3F4BF67276F1DDEE6460488",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\LocalUser.ps1"
+  },
+  {
+    "File": "Random.ps1",
+    "Hash": "470731AC445BAB2F41A58AC0218DB53B2F092FB9F67E7F2CC73BD514DC513C69",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Random.ps1"
+  },
+  {
+    "File": "Signature.ps1",
+    "Hash": "8C0F0FD1ED218BE82C837EE162B748637D0583185B4022E4526F285DC080D1F4",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Signature.ps1"
+  },
+  {
+    "File": "Uac.ps1",
+    "Hash": "708C23A965DFD0F2B8C2A8BEC3C715424297AE6093EA5C1318E2F3C3705DFD0A",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Public\\Uac.ps1"
+  },
+  {
+    "File": "Acl.Tests.ps1",
+    "Hash": "5201191C0D04041D73C1EDA6F884642D2104F03A1A17F2C6537A192271A54B68",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Acl.Tests.ps1"
+  },
+  {
+    "File": "Elevated.Tests.ps1",
+    "Hash": "8DD04128A4F497E0768CEAEA7D956E94F2153964CD6F0EE5E3DB5BF389A1B933",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Elevated.Tests.ps1"
+  },
+  {
+    "File": "Encryption.Tests.ps1",
+    "Hash": "A8FDFB3BF031BDD155C21B2A3644667024FF5759B0E78D26FA7A880332262266",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Encryption.Tests.ps1"
+  },
+  {
+    "File": "Integrity.Tests.ps1",
+    "Hash": "A42A4AA1B7AB5F1A992A04F82F71313643AE1DB32BFA527B75148C23B89F3B59",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Integrity.Tests.ps1"
+  },
+  {
+    "File": "Linux.Tests.ps1",
+    "Hash": "348F3B874AA462E8AADF67D6D91171827EE76F640E3FF5A5D5712FCAC4F15502",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Linux.Tests.ps1"
+  },
+  {
+    "File": "LocalUser.Tests.ps1",
+    "Hash": "33D5FAD15423BD72D4AA6C904669EFD441693EB2F7F5A3BA67E7AF5C4A36248F",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\LocalUser.Tests.ps1"
+  },
+  {
+    "File": "Module.Tests.ps1",
+    "Hash": "174DBF413C01C9639AEF2F2F8F95D7EFDBDE570D4FAC7967480C24716ED4D444",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Module.Tests.ps1"
+  },
+  {
+    "File": "Random.Tests.ps1",
+    "Hash": "0A9670529F66B5434D0A1E995C043FAE99E0C969AB7DED8E994639E84F63D68A",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Random.Tests.ps1"
+  },
+  {
+    "File": "Signature.Tests.ps1",
+    "Hash": "C8C483517F01BD42DD94BA84A6D1BD40FCAD2A81F64D40F0D340F27699166A11",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Signature.Tests.ps1"
+  },
+  {
+    "File": "Uac.Tests.ps1",
+    "Hash": "AC561D3D65D05BC9E97C8280A57839BFBFE573A6C65C4F3456160FBF0508A27F",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\Tests\\Uac.Tests.ps1"
+  },
+  {
+    "File": "CHANGELOG.md",
+    "Hash": "4BEC035D2447E92AD85BA73FEA5612628822868673EB6FF2E862FEAAE40AB84E",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\CHANGELOG.md"
+  },
+  {
+    "File": "OptimusSharp.PSSecurity.psd1",
+    "Hash": "3A0F04F8342BB422249310F041145D18531A91C7E77452360A473003502E569B",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\OptimusSharp.PSSecurity.psd1"
+  },
+  {
+    "File": "OptimusSharp.PSSecurity.psm1",
+    "Hash": "1771991C2AE7F8D53F39001A83C77CC2890A8958AB1F92680346ABC37C63FF51",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\OptimusSharp.PSSecurity.psm1"
+  },
+  {
+    "File": "README.md",
+    "Hash": "4074666D23F15E6EEE08FFBEF17DEBBD25008D4676897EC39D3518C2AD1C6DC9",
+    "Path": "\\Develop\\InvokeBuildAutomations\\src\\OptimusSharp.PSSecurity\\README.md"
+  }
+]
