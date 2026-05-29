@@ -98,19 +98,19 @@ PrivateData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
         Tags = 'Security', 'Encryption', 'Hashing', 'FileIntegrity', 'ACL', 'UAC',
-               'Authenticode', 'CMMC', 'STIG', 'Windows', 'Linux', 'PSEdition_Core'
+               'Authenticode', 'CMMC', 'STIG', 'Windows', 'PSEdition_Core'
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/andmigque/OptimusSharp/blob/main/src/OptimusSharp.PSSecurity/LICENSE'
+        LicenseUri = 'https://github.com/andmigque/OptimusSharp.PSSecurity/blob/main/LICENSE'
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/andmigque/OptimusSharp'
+        ProjectUri = 'https://github.com/andmigque/OptimusSharp.PSSecurity'
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Initial release. Extracted from src/Script/OptimusSecurity.psm1 into a standard module with Public/Private domain files and a platform-gated loader.'
+        ReleaseNotes = 'Initial Release'
 
         # Prerelease string of this module
         # Prerelease = ''
