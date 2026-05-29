@@ -1,9 +1,8 @@
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/andmigque/OptimusSharp.StaticAssets/refs/heads/main/optimus-mark-96.png"
+    src="https://raw.githubusercontent.com/andmigque/OptimusSharp.StaticAssets/refs/heads/main/optimus.svg"
     alt="Optimus Sharp"
-    width="96"
-    height="96" />
+    width="96" />
 </p>
 
 <h1 align="center">OptimusSharp.PSSecurity</h1>
