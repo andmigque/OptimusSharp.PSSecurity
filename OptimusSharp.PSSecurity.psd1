@@ -12,7 +12,7 @@
 RootModule = 'OptimusSharp.PSSecurity.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.1.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -30,7 +30,7 @@ CompanyName = 'Optimus Sharp'
 Copyright = '(c) 2026 Andres Quesada. Released under the MIT License.'
 
 # Description of the functionality provided by this module
-Description = 'Cross-platform PowerShell security toolkit: file hashing and directory integrity indexing, AES-256 file encryption, cryptographically secure random strings, Windows ACL and UAC management, local-admin provisioning, Authenticode auditing, and Linux cron and certificate hardening.'
+Description = 'Cross-platform PowerShell security toolkit: file hashing and directory integrity indexing, AES-256 file encryption, cryptographically secure random strings, Windows ACL and UAC management, local-admin provisioning, Authenticode auditing, and certificate hardening.'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '7.0'
