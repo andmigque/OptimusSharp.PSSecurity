@@ -23,6 +23,6 @@ function New-LocalAdminUser
      - `[bool]`: __Created__
          - *Always `$true` on success.*
      - `[bool]`: __IsAdministrator__
-         - *Always `$true` — the user is added to the Administrators group.*
+         - *Always `$true`. The user is added to the Administrators group.*
      - `[bool]`: __PasswordNeverExpires__
          - *Reflects the `-PasswordNeverExpires` switch.*

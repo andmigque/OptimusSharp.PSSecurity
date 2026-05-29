@@ -2,7 +2,9 @@
 ```powershell
 function Set-UacRequirePassword
 ```
- Set UAC to prompt for credentials on the secure desktop — STIG V-220963 compliant. Requires Administrator.
+ Set UAC to prompt for credentials on the secure desktop.
+ This is STIG V-220963 compliant.
+ Requires Administrator.
 
  **Returns**
  - `[PSCustomObject]`
@@ -11,14 +13,15 @@ function Set-UacRequirePassword
      - `[int]`: __Before__
          - *Previous registry value.*
      - `[int]`: __After__
-         - *New registry value (`1`).*
+         - *New registry value `1`.*
      - `[string]`: __Status__
          - *Human-readable status message.*
  # Set-UacConsentOnly
 ```powershell
 function Set-UacConsentOnly
 ```
- Set UAC back to consent-only elevation — the Windows default (value 5). Requires Administrator.
+ Set UAC back to consent-only elevation, which is the Windows default value of 5.
+ Requires Administrator.
 
  **Returns**
  - `[PSCustomObject]`
@@ -27,7 +30,7 @@ function Set-UacConsentOnly
      - `[int]`: __Before__
          - *Previous registry value.*
      - `[int]`: __After__
-         - *New registry value (`5`).*
+         - *New registry value `5`.*
      - `[string]`: __Status__
          - *Human-readable status message.*
  # Get-UacConfiguration
@@ -39,13 +42,13 @@ function Get-UacConfiguration
  **Returns**
  - `[PSCustomObject]`
      - `[int]`: __ConsentPromptBehaviorAdmin__
-         - *Raw registry value (0–5).*
+         - *Raw registry value from 0 to 5.*
      - `[string]`: __ConsentPromptBehaviorAdminMeaning__
          - *Human-readable interpretation of the prompt behavior.*
      - `[int]`: __EnableLUA__
          - *`1` if UAC is enabled, `0` if disabled.*
      - `[string]`: __EnableLUAMeaning__
-         - *Either `'UAC Enabled'` or `'UAC Disabled (INSECURE)'`.*
+         - *Either `UAC Enabled` or the insecure-disabled message.*
      - `[int]`: __PromptOnSecureDesktop__
          - *`1` if the secure desktop is used for prompts, `0` otherwise.*
      - `[string]`: __PromptOnSecureDesktopMeaning__

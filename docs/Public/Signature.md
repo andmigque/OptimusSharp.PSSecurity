@@ -6,7 +6,7 @@ function Get-ApplicationSignatureAudit
 
  **Parameters**
  - `[int]`: __ThrottleLimit__
-     - *Parallel throttle limit. Range 1–64. Defaults to 4.*
+     - *Parallel throttle limit. Range 1 to 64. Defaults to 4.*
 
  **Returns**
  - `[PSCustomObject[]]`
@@ -15,7 +15,7 @@ function Get-ApplicationSignatureAudit
      - `[string]`: __Path__
          - *Absolute path to the executable.*
      - `[string]`: __Status__
-         - *Authenticode signature status (e.g. `Valid`, `NotSigned`, `Error`).*
+         - *Authenticode signature status, for example `Valid`, `NotSigned`, or `Error`.*
      - `[string]`: __StatusMessage__
          - *Free-form status text from the signature check.*
      - `[string]`: __SignerCertificate__
@@ -25,4 +25,4 @@ function Get-ApplicationSignatureAudit
      - `[bool]`: __IsOSBinary__
          - *`$true` for Microsoft-signed OS binaries.*
      - `[string]`: __SignatureType__
-         - *Signature type (e.g. `Authenticode`, `Catalog`, `Unknown`).*
+         - *Signature type, for example `Authenticode`, `Catalog`, or `Unknown`.*

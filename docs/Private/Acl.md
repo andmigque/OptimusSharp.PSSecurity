@@ -2,7 +2,9 @@
 ```powershell
 function Get-AclPathTargets
 ```
- Internal helper. Resolve a path to a list of `FileSystemInfo` targets. Used by all ACL functions to handle `-Recurse`, `-File`, and `-Directory` filtering consistently.
+ Internal helper.
+ Resolve a path to a list of `FileSystemInfo` targets.
+ Used by all ACL functions to handle `-Recurse`, `-File`, and `-Directory` filtering consistently.
 
  **Parameters**
  - `[string]`: __Path__

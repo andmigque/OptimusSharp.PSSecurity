@@ -3,7 +3,7 @@ using namespace System.IO
 using namespace System.Security.Cryptography
 using namespace System.Collections.Immutable
 
-    #### # New-LocalAdminUser
+#### # New-LocalAdminUser
     function New-LocalAdminUser {
         #### Create a local user account and add it to the Administrators group. Requires Administrator.
         ####
@@ -26,7 +26,7 @@ using namespace System.Collections.Immutable
         ####     - `[bool]`: __Created__
         ####         - *Always `$true` on success.*
         ####     - `[bool]`: __IsAdministrator__
-        ####         - *Always `$true` — the user is added to the Administrators group.*
+        ####         - *Always `$true`. The user is added to the Administrators group.*
         ####     - `[bool]`: __PasswordNeverExpires__
         ####         - *Reflects the `-PasswordNeverExpires` switch.*
         [CmdletBinding()]

@@ -45,7 +45,8 @@ function Show-AclItem
 ```powershell
 function Get-AclItemOwner
 ```
- Return ownership information for each target: who owns it and whether the owner is SYSTEM, Administrators, or the current user.
+ Return ownership information for each target.
+ Reports who owns it and whether the owner is SYSTEM, Administrators, or the current user.
 
  **Parameters**
  - `[string]`: __Path__
@@ -97,7 +98,9 @@ function Set-AclItemOwner
 ```powershell
 function Repair-AclItemOwnership
 ```
- Convenience wrapper: calls `Set-AclItemOwner -Recurse` to reassign ownership across an entire directory tree. Requires Administrator.
+ Convenience wrapper that calls `Set-AclItemOwner -Recurse`.
+ Reassigns ownership across an entire directory tree.
+ Requires Administrator.
 
  **Parameters**
  - `[string]`: __Path__
@@ -114,9 +117,9 @@ function Grant-AclItem
  - `[string]`: __Path__
      - *File or directory path. Accepts pipeline input.*
  - `[string]`: __Identity__
-     - *Principal to grant access to (e.g. `DOMAIN\User`).*
+     - *Principal to grant access to, for example `DOMAIN\User`.*
  - `[FileSystemRights]`: __Rights__
-     - *Rights to grant (e.g. `ReadAndExecute`, `Modify`, `FullControl`).*
+     - *Rights to grant, for example `ReadAndExecute`, `Modify`, or `FullControl`.*
  - `[AccessControlType]`: __AccessControlType__
      - *`Allow` or `Deny`. Defaults to `Allow`.*
  - `[InheritanceFlags]`: __InheritanceFlags__
@@ -142,7 +145,10 @@ function Grant-AclItem
 ```powershell
 function Revoke-AclItem
 ```
- Remove ACEs matching an identity from one or more targets. If `-Rights` is specified, only ACEs that include those rights are removed. Requires Administrator. Supports `-WhatIf`.
+ Remove ACEs matching an identity from one or more targets.
+ If `-Rights` is specified, only ACEs that include those rights are removed.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__
@@ -170,7 +176,9 @@ function Revoke-AclItem
 ```powershell
 function Copy-AclItem
 ```
- Apply the full ACL from a source path to one or more destination paths. Requires Administrator. Supports `-WhatIf`.
+ Apply the full ACL from a source path to one or more destination paths.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Source__
@@ -194,17 +202,22 @@ function Copy-AclItem
 ```powershell
 function Set-AclItemInheritance
 ```
- Enable or disable ACL inheritance on file system items. Use `-Enable` to restore inheritance or `-Disable` to break it. `-PreserveExisting` copies inherited rules as explicit ACEs before breaking. Requires Administrator. Supports `-WhatIf`.
+ Enable or disable ACL inheritance on file system items.
+ Use `-Enable` to restore inheritance or `-Disable` to break it.
+ `-PreserveExisting` copies inherited rules as explicit ACEs before breaking.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__
      - *File or directory path. Accepts pipeline input.*
  - `[switch]`: __Enable__
-     - *Restore inheritance (default parameter set).*
+     - *Restore inheritance. This is the default parameter set.*
  - `[switch]`: __Disable__
      - *Break inheritance.*
  - `[switch]`: __PreserveExisting__
-     - *When disabling, copy inherited rules as explicit ACEs before breaking. Only valid with `-Disable`.*
+     - *When disabling, copy inherited rules as explicit ACEs before breaking.*
+     - *Only valid with `-Disable`.*
  - `[switch]`: __Recurse__ / __File__ / __Directory__
      - *Passed to `Get-AclPathTargets`.*
 
@@ -224,7 +237,8 @@ function Set-AclItemInheritance
 ```powershell
 function Get-AclItemAccountUnknown
 ```
- Filter ACEs where `IdentityReference` is a raw SID (`S-1-...`), indicating a deleted or orphaned account.
+ Filter ACEs where `IdentityReference` is a raw SID such as `S-1-...`.
+ A raw SID indicates a deleted or orphaned account.
 
  **Parameters**
  - `[string]`: __Path__
@@ -250,13 +264,16 @@ function Show-AclItemAccountUnknown
 ```powershell
 function Get-AclItemAccountAnomalies
 ```
- Detect anomalous ACEs: orphaned SIDs, Sandbox principals, and unexpected write permissions from untrusted identities. Each result includes an `AnomalyReasons` field listing which rules fired.
+ Detect anomalous ACEs.
+ Flags orphaned SIDs, Sandbox principals, and unexpected writes from untrusted identities.
+ Each result includes an `AnomalyReasons` field listing which rules fired.
 
  **Parameters**
  - `[string]`: __Path__
      - *File or directory path. Accepts pipeline input.*
  - `[string[]]`: __TrustedPrincipals__
-     - *Identities considered safe. Defaults to `NT AUTHORITY\SYSTEM`, `BUILTIN\Administrators`, `CREATOR OWNER`.*
+     - *Identities considered safe.*
+     - *Defaults to `NT AUTHORITY\SYSTEM`, `BUILTIN\Administrators`, and `CREATOR OWNER`.*
  - `[switch]`: __Recurse__ / __File__ / __Directory__
      - *Passed to `Get-AclItem`.*
 
@@ -275,12 +292,15 @@ function Get-AclItemAccountAnomalies
      - `[bool]`: __IsInherited__
          - *`$true` if inherited from a parent.*
      - `[string]`: __AnomalyReasons__
-         - *Comma-separated list of triggered rules: `OrphanedSid`, `SandboxPrincipal`, `UnexpectedWrite`.*
+         - *Comma-separated list of triggered rules.*
+         - *One or more of `OrphanedSid`, `SandboxPrincipal`, and `UnexpectedWrite`.*
  # Remove-AclItemAccountUnknown
 ```powershell
 function Remove-AclItemAccountUnknown
 ```
- Remove all ACEs with orphaned SID identity references from one or more targets. Requires Administrator. Supports `-WhatIf`.
+ Remove all ACEs with orphaned SID identity references from one or more targets.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__
@@ -304,7 +324,9 @@ function Remove-AclItemAccountUnknown
 ```powershell
 function Reset-AclItem
 ```
- Strip all explicit (non-inherited) ACEs from one or more targets, leaving only inherited rules. Requires Administrator. Supports `-WhatIf`.
+ Strip all explicit non-inherited ACEs from one or more targets, leaving only inherited rules.
+ Requires Administrator.
+ Supports `-WhatIf`.
 
  **Parameters**
  - `[string]`: __Path__
