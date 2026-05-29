@@ -2,10 +2,6 @@
     Severity            = @('Error', 'Warning', 'Information')
     IncludeDefaultRules = $true
 
-    # CustomRulePath      = @(
-    #     './analyzers/AvoidNewObjectRule.psm1'
-    # )
-
     Rules               = @{
         PSReviewUnusedParameter = @{
             CommandsToTraverse = @(
