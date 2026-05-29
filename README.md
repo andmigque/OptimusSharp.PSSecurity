@@ -59,13 +59,19 @@ It produces a 32-character alphanumeric string.
 
 ## 🔙 Background
 
-Security chores are scattered across ad-hoc scripts and platform tools.
+Every project repeats the same security chores. Hash a release. Encrypt a
+secret. Audit an ACL. The scripts get copied, drift, and rot.
 
-This module gathers them into one toolkit: hashing and integrity indexing,
-AES-256 file encryption, secure randomness, Windows ACL and UAC management,
-local-admin provisioning, and Authenticode auditing.
+This module gathers those chores into one toolkit:
 
-It targets PowerShell 7 or later on the Core edition.
+- Hashing and directory integrity indexing
+- AES-256 file encryption
+- Cryptographically secure randomness
+- Windows ACL and UAC management
+- Local-admin provisioning
+- Authenticode auditing
+
+It runs on PowerShell 7 and the Core edition.
 
 ## 🔐 How To
 
