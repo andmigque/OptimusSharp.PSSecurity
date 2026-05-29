@@ -14,7 +14,7 @@
 ## Install
 
 ```powershell
-Install-Module OptimusSharp.PSSecurity -Scope CurrentUser
+Install-Module -Name OptimusSharp.PSSecurity -RequiredVersion 1.1.0
 ```
 
 The module targets PowerShell 7 or later on the Core edition. Windows and Linux each get an
