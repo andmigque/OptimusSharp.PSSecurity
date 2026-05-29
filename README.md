@@ -4,9 +4,12 @@
 > encryption, secure randomness, Windows ACL and UAC management, local-admin provisioning,
 > Authenticode auditing, and Linux cron and certificate hardening.
 
+![PSGallery](https://img.shields.io/powershellgallery/v/OptimusSharp.PSSecurity)
 ![PowerShell](https://img.shields.io/badge/PowerShell-7%2B-5391FE)
 ![Edition](https://img.shields.io/badge/edition-Core-2b579a)
 ![License](https://img.shields.io/badge/license-MIT-2ea44f)
+
+
 
 ## Install
 
