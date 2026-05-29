@@ -77,21 +77,23 @@ Write-DirectoryHashes -Path .\release
 Hashed 42 files into .\release\HashIndex.md and .\release\HashIndex.json
 ```
 
-Round-trip a file through AES-256. Read the key once, then reuse it.
+Round-trip a file through AES-256. Pull the key from a vault with
+[SecretManagement](https://learn.microsoft.com/powershell/utility-modules/secretmanagement/overview),
+then reuse it for both directions.
 
 ```powershell
-$key = Read-Host -AsSecureString
+$key = Get-Secret -Name OptimusFileKey
 ```
 
 ```powershell
 $enc = Protect-FileWithEncryption -Path .\secret.txt -SecureKey $key
 ```
 
-Splat the decrypt parameters so each option stays on its own line.
+Splat the decrypt parameters to keep each option on its own line.
 
 ```powershell
 $restore = @{
-    EncryptedFilePath = $enc.Path
+    EncryptedFilePath = $enc['Path']
     FilePassword      = $key
     OutputFilePath    = '.\secret.out'
 }
@@ -105,30 +107,30 @@ Unprotect-EncryptedFile @restore
 
 ### Cross-platform
 
-- **`Get-Hash`** — Hash a file with MD5, SHA1, SHA256, SHA384, or SHA512.
-- **`Get-SecureRandom32`** — Generate a secure alphanumeric string, length 1 to 512.
-- **`Protect-FileWithEncryption`** — Encrypt a file with AES-256-CBC and a PBKDF2 key.
-- **`Unprotect-EncryptedFile`** — Decrypt a file from `Protect-FileWithEncryption`.
-- **`Write-DirectoryHashes`** — Write `HashIndex.md` and `HashIndex.json` across a tree.
+- **`Get-Hash`** hashes a file with MD5, SHA1, SHA256, SHA384, or SHA512.
+- **`Get-SecureRandom32`** generates a secure alphanumeric string of length 1 to 512.
+- **`Protect-FileWithEncryption`** encrypts a file with AES-256-CBC and a PBKDF2 key.
+- **`Unprotect-EncryptedFile`** decrypts a file from `Protect-FileWithEncryption`.
+- **`Write-DirectoryHashes`** writes `HashIndex.md` and `HashIndex.json` across a tree.
 
 ### Windows
 
-- **`Get-AclItem`** / **`Show-AclItem`** — List or render the access control entries on a path.
-- **`Get-AclItemOwner`** / **`Set-AclItemOwner`** — Read or set the owner of a path.
-- **`Repair-AclItemOwnership`** — Reassign ownership across a tree.
-- **`Grant-AclItem`** / **`Revoke-AclItem`** — Add or remove an access control entry.
-- **`Copy-AclItem`** — Copy an access control list between paths.
-- **`Set-AclItemInheritance`** — Enable or disable inheritance on a path.
-- **`Get-AclItemAccountUnknown`** — Find orphaned SIDs in an ACL.
-- **`Show-AclItemAccountUnknown`** — Render orphaned SIDs in an ACL.
-- **`Get-AclItemAccountAnomalies`** — Report access control anomalies.
-- **`Remove-AclItemAccountUnknown`** — Strip orphaned SIDs from an ACL.
-- **`Reset-AclItem`** — Strip explicit entries back to inherited.
-- **`Set-UacRequirePassword`** — Require a password at the UAC prompt.
-- **`Set-UacConsentOnly`** — Set the UAC prompt to consent only.
-- **`Get-UacConfiguration`** — Read UAC policy and STIG compliance.
-- **`New-LocalAdminUser`** — Create a local user in the Administrators group.
-- **`Get-ApplicationSignatureAudit`** — Audit Authenticode signatures across PATH.
+- **`Get-AclItem`** and **`Show-AclItem`** list or render the access control entries on a path.
+- **`Get-AclItemOwner`** and **`Set-AclItemOwner`** read or set the owner of a path.
+- **`Repair-AclItemOwnership`** reassigns ownership across a tree.
+- **`Grant-AclItem`** and **`Revoke-AclItem`** add or remove an access control entry.
+- **`Copy-AclItem`** copies an access control list between paths.
+- **`Set-AclItemInheritance`** enables or disables inheritance on a path.
+- **`Get-AclItemAccountUnknown`** finds orphaned SIDs in an ACL.
+- **`Show-AclItemAccountUnknown`** renders orphaned SIDs in an ACL.
+- **`Get-AclItemAccountAnomalies`** reports access control anomalies.
+- **`Remove-AclItemAccountUnknown`** strips orphaned SIDs from an ACL.
+- **`Reset-AclItem`** strips explicit entries back to inherited.
+- **`Set-UacRequirePassword`** requires a password at the UAC prompt.
+- **`Set-UacConsentOnly`** sets the UAC prompt to consent only.
+- **`Get-UacConfiguration`** reads UAC policy and STIG compliance.
+- **`New-LocalAdminUser`** creates a local user in the Administrators group.
+- **`Get-ApplicationSignatureAudit`** audits Authenticode signatures across PATH.
 
 ## 📦 Links
 
