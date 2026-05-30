@@ -54,6 +54,7 @@ PowerShellVersion = '7.0'
 RequiredModules = @(
         @{ ModuleName = 'Pester'; ModuleVersion = '5.7.1' }
         @{ ModuleName = 'PSScriptAnalyzer'; ModuleVersion = '1.24.0' }
+        @{ ModuleName = 'InvokeBuild'; ModuleVersion = '5.14.23' }
     )
 
 # Assemblies that must be loaded prior to importing this module
